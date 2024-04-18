@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise</title>
+  </head>
+  <body>
+    <p>
+      <button
+        onclick="
+        updateCalculation('1');
+      "
+      >
+        1
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('2');
+      "
+      >
+        2
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('3');
+      "
+      >
+        3
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' + ');
+      "
+      >
+        +
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('4');
+      "
+      >
+        4
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('5');
+      "
+      >
+        5
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('6');
+      "
+      >
+        6
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' - ');
+      "
+      >
+        -
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('7');
+      "
+      >
+        7
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('8');
+      "
+      >
+        8
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('9');
+      "
+      >
+        9
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' * ');
+      "
+      >
+        *
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('0');
+      "
+      >
+        0
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('.');
+      "
+      >
+        .
+      </button>
+
+      <button
+        onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+        saveCalculation() ;
+        "
+      >
+        =
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' / ');
+      "
+      >
+        /
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        calculation = '';
+        console.log(calculation);
+      saveCalculation() ;
+      "
+      >
+        Clear
+      </button>
+    </p>
+    <!-- Challenge Exercise -->
+
+    <button onclick="playGame('heads')">Heads</button>
+    <button onclick="playGame('tails')">Tails</button>
+    <script>
+      const object1 = {
+        name: "Basketball",
+        price: 2095,
+      };
+      console.log(object1);
+
+      object1.price = 500;
+      console.log(object1);
+      object1["delevery-time "] = "3 days";
+
+      console.log(object1);
+
+      const products1 = {
+        name: "Basketball",
+        price: 2095,
+      };
+      const products2 = {
+        name: "Basketball",
+        price: 500,
+      };
+
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          return product1;
+        } else {
+          return product2;
+        }
+      }
+      console.log(comparePrice(products1, products2));
+
+      function isSameProduct(product1, product2) {
+        if (product1.name == product1.name) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(isSameProduct(products1, products2));
+
+      console.log("SADAQ".toLowerCase());
+      console.log("sadaq".repeat(2));
+
+      let calculation = localStorage.getItem("calculation") || "";
+
+      function updateCalculation(value) {
+        calculation += value;
+        console.log(calculation);
+        saveCalculation();
+      }
+      function saveCalculation() {
+        localStorage.setItem("calculation", calculation);
+      }
+
+      // Challenge Exercise
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        win: 0,
+        lose: 0,
+      };
+      function playGame(guess) {
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? "heads" : "tails";
+        console.log(guess === result ? "You win!" : "You lose!");
+        if (guess === result) {
+          score.win++;
+        } else {
+          score.lose++;
+        }
+        localStorage.setItem("score", JSON.stringify(score));
+        console.log(score);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise</title>
+  </head>
+  <body>
+    <button
+      onclick="
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      Show Quantity
+    </button>
+
+    <button
+      onclick="
+    if (cartQuantity + 1 > 10) {
+        alert('The cart is full');
+      } else {
+        cartQuantity++;
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+    "
+    >
+      Add to Cart
+    </button>
+
+    <button
+      onclick="
+      cartQuantity += 2;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      +2
+    </button>
+
+    <button
+      onclick="
+      cartQuantity = cartQuantity + 3;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      +3
+    </button>
+
+    <button
+      onclick="
+      cartQuantity += 4;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      +4
+    </button>
+
+    <button
+      onclick="
+      cartQuantity += 5;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      +5
+    </button>
+
+    <!-- vvv This code was changed. vvv -->
+    <button
+      onclick="
+      if (cartQuantity - 1 < 0) {
+        alert('Not enough items in the cart');
+      } else {
+        cartQuantity--;
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+      "
+    >
+      Remove from cart
+    </button>
+
+    <button
+      onclick="
+      cartQuantity -= 2;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      -2
+    </button>
+
+    <button
+      onclick="
+      cartQuantity -= 3;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      -3
+    </button>
+    <!-- ^^^ This code was changed. ^^^ -->
+
+    <button
+      onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      console.log(`Cart quantity: ${cartQuantity}`);
+    "
+    >
+      Reset Cart
+    </button>
+
+    <script>
+      const hour = 15;
+      const name = "Sadaq";
+      if (hour >= 6 && hour <= 12) {
+        console.log(`Good morning! ${name}`);
+      } else if (hour >= 13 && hour <= 17) {
+        console.log(`Good afternoon! ${name}`);
+      } else {
+        console.log(`Good night! ${name}`);
+      }
+
+      const age = 3;
+      const Holiday = true;
+      // && has a higher priority than || so for
+      // this to work correctly, we need to add
+      // brackets () around the || check to make
+      // sure that it gets done first.
+      if ((age <= 6 || age >= 65) && !Holiday) {
+        console.log("Discount");
+      } else {
+        console.log("No discount");
+      }
+
+      // Chalange Exercise
+      let cartQuantity = 0;
+    </script>
+  </body>
+</html>

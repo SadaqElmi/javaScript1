@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise</title>
+  </head>
+  <body>
+    <button>9a</button>
+    <button class="change">9a</button>
+
+    <button
+      onclick="
+    document.querySelector('.print').innerHTML = 'You Chose: Head'
+    "
+    >
+      Heads
+    </button>
+    <button
+      onclick="
+     document.querySelector('.print').innerHTML = 'You Chose: Tails'
+    "
+    >
+      Tails
+    </button>
+    <p class="print"></p>
+
+    <input
+      type="text"
+      placeholder="Enter"
+      class="input"
+      onkeydown="
+    pressEnter(event)
+    "
+    />
+    <button onclick="displayText()">Submit</button>
+    <p class="display"></p>
+
+    <!-- Challenge Exercise  -->
+
+    <input
+      type="text"
+      placeholder="Cost Of Order "
+      class="js-cost"
+      onkeydown="
+    handleCostOnkeydown(event);
+    "
+    />
+    <button
+      onclick="
+    CalculateTotal();
+    "
+    >
+      Calculate
+    </button>
+    <p class="js-cost-total"></p>
+
+    <input
+      type="text"
+      placeholder="Type Something"
+      class="Onkey"
+      onkeyup="
+    const input = document.querySelector('.Onkey');
+
+    let text = input.value;
+    document.querySelector('.onkeyUp').innerHTML = ` ${text} `;
+"
+    />
+    <p class="onkeyUp"></p>
+
+    <button
+      onclick="
+        displayCartQuantity();
+
+    "
+    >
+      Show Quantity
+    </button>
+
+    <button
+      onclick="
+  updateCartQuantity(1)
+    "
+    >
+      Add to Cart
+    </button>
+
+    <button
+      onclick="
+     updateCartQuantity(2);
+    "
+    >
+      +2
+    </button>
+
+    <button
+      onclick="
+     updateCartQuantity(3);
+    "
+    >
+      +3
+    </button>
+
+    <button
+      onclick="
+    updateCartQuantity(4);
+    "
+    >
+      +4
+    </button>
+
+    <button
+      onclick="
+    updateCartQuantity(5);
+    "
+    >
+      +5
+    </button>
+
+    <!-- vvv This code was changed. vvv -->
+    <button
+      onclick="
+    updateCartQuantity(-1)
+    "
+    >
+      Remove from cart
+    </button>
+
+    <button
+      onclick="
+     updateCalculation(-2)
+    "
+    >
+      -2
+    </button>
+
+    <button
+      onclick="
+    updateCartQuantity(-3);
+    "
+    >
+      -3
+    </button>
+    <!-- ^^^ This code was changed. ^^^ -->
+
+    <button
+      onclick="
+      cartQuantity = 0;
+     
+               displayCartQuantity();
+
+    "
+    >
+      Reset Cart
+    </button>
+
+    <p class="displayCart"></p>
+
+    <!-- Calculate  -->
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('1');
+      "
+      >
+        1
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('2');
+      "
+      >
+        2
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('3');
+      "
+      >
+        3
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' + ');
+      "
+      >
+        +
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('4');
+      "
+      >
+        4
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('5');
+      "
+      >
+        5
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('6');
+      "
+      >
+        6
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' - ');
+      "
+      >
+        -
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('7');
+      "
+      >
+        7
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('8');
+      "
+      >
+        8
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('9');
+      "
+      >
+        9
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' * ');
+      "
+      >
+        *
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('0');
+      "
+      >
+        0
+      </button>
+
+      <button
+        onclick="
+        updateCalculation('.');
+      "
+      >
+        .
+      </button>
+
+      <button
+        onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+               displayCalculate();
+
+        saveCalculation() ;
+        "
+      >
+        =
+      </button>
+
+      <button
+        onclick="
+        updateCalculation(' / ');
+      "
+      >
+        /
+      </button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        calculation = '';
+        displayCalculate();
+      saveCalculation() ;
+      "
+      >
+        Clear
+      </button>
+    </p>
+    <p class="displayCal"></p>
+
+    <script>
+      console.log(document.querySelector("button"));
+      document.querySelector(".change").innerHTML = "9a done!";
+
+      function pressEnter(event) {
+        if (event.key === "Enter") {
+          displayText();
+        }
+      }
+      function displayText() {
+        const input = document.querySelector(".input");
+
+        let text = input.value;
+
+        document.querySelector(".display").innerHTML = `You Name is: ${text} `;
+      }
+
+      function handleCostOnkeydown(event) {
+        if (event.key === "Enter") {
+          CalculateTotal();
+        }
+      }
+
+      // Challenge Exercises
+
+      function CalculateTotal() {
+        const costElement = document.querySelector(".js-cost");
+        let cost = Number(costElement.value) * 100;
+        if (cost < 4000) {
+          cost += 1000;
+        }
+        const costTotalElement = document.querySelector(".js-cost-total");
+        costTotalElement.innerText = `$${cost / 100}`;
+      }
+
+      let cartQuantity = 0;
+      function updateCartQuantity(value) {
+        if (cartQuantity + value > 10) {
+          alert("The Cart Is Full");
+          return;
+        } else if (cartQuantity + value < 0) {
+          alert("Not enough items in the cart");
+          return;
+        } else {
+          cartQuantity += value;
+          displayCartQuantity();
+        }
+      }
+
+      function displayCartQuantity() {
+        let displayCart = (document.querySelector(
+          ".displayCart"
+        ).innerHTML = `Cart quantity: ${cartQuantity}`);
+      }
+
+      let calculation = localStorage.getItem("calculation") || "";
+
+      function updateCalculation(value) {
+        calculation += value;
+        displayCalculate();
+        saveCalculation();
+      }
+      function saveCalculation() {
+        localStorage.setItem("calculation", calculation);
+      }
+
+      function displayCalculate() {
+        let displayCart = (document.querySelector(
+          ".displayCal"
+        ).innerHTML = `Calculate: ${calculation}`);
+      }
+    </script>
+  </body>
+</html>
