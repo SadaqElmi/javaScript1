@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tod-list</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <p>Todo list practice 1</p>
+    <input type="text" placeholder="Todo name" class="js-name-input" />
+    <button onclick="addTodo()">Add</button>
+
+    <p>Todo list practice 2</p>
+    <input class="js-name-input1" type="text" placeholder="Todo name" />
+    <button onclick="addTodo1()">Add</button>
+    <div class="js-todo-list-1"></div>
+
+    <p>Todo list practice 3</p>
+    <div class="todo-input-grid">
+      <input
+        class="js-name-input2 name-input"
+        type="text"
+        placeholder="Todo name"
+      />
+      <input type="date" class="js-due-date-input due-date-input" />
+      <button onclick="addTodo2()" class="add-todo-button">Add</button>
+      <div class="js-todo-list-2 todo-grid"></div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
